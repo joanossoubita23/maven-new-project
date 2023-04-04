@@ -44,11 +44,14 @@ pipeline {
         }
     }
     stage('SonarQube Scan') {
-      steps {
-        sh mvn """mmvn sonar:sonar \
-  -Dsonar.projectKey=test \
-  -Dsonar.host.url=http://3.88.177.87:9000 \
-  -Dsonar.login=885bcd6765f6286fc3dcf0fae7d6cb94b4449813"""
+  steps {
+    sh """mvn sonar:sonar \
+      -Dsonar.projectKey=test \
+      -Dsonar.host.url=http://3.88.177.87:9000 \
+      -Dsonar.login=885bcd6765f6286fc3dcf0fae7d6cb94b4449813"""
+  }
+}
+
       }
     }
     stage('Upload to Artifactory') {
